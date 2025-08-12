@@ -27,7 +27,6 @@ public class BaseTest {
 
     @BeforeSuite
     public void beforeSuite() {
-
         extent = ExtentManager.getInstance();
     }
 
@@ -52,7 +51,9 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown(ITestResult result) {
+
         DriverFactory.quitDriver();
+        //getDriver().quit();
 
         if (result.getStatus() == ITestResult.FAILURE) {
             test.log(Status.FAIL, "Test Case Failed: " + result.getName());
